@@ -32,6 +32,6 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add profiles/README.md
+          git add profile/README.md
           git commit -m "Manuel opdatering: Kursusarkiv opdateret" || exit 0
           git push
