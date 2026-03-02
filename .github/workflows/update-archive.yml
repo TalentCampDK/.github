@@ -25,8 +25,8 @@ jobs:
       - name: Run update script
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          GITHUB_ORG: "DIT_ORGANISATION_NAVN"
-        run: python update_hub.py
+          GITHUB_ORG: "TalentCampDK"
+        run: python update_archive.py
 
       - name: Commit and push changes
         run: |

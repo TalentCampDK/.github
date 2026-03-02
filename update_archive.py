@@ -4,7 +4,7 @@ import base64
 import json
 
 # --- KONFIGURATION ---
-GITHUB_ORG = "TalentCampDK"
+GITHUB_ORG = os.getenv("GITHUB_ORG")
 TOKEN = os.getenv("GH_TOKEN")
 HEADERS = {"Authorization": f"token {TOKEN}"}
 
