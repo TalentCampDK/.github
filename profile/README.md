@@ -1,5 +1,11 @@
 # Kursus Arkiv
 
+> ### 🚀 [Opret nyt undervisningsmateriale her](https://github.com/TalentCampDK/github-actions-central/issues/new?template=new-educational-material.yml)
+> Brug linket herover for at oprette et nyt repository med automatisk setup.
+
+
+---
+
 ## Aspirant
 
 <details>
