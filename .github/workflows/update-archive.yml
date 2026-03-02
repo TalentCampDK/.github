@@ -1,0 +1,37 @@
+name: Update Course Archive
+
+on:
+  # Gør det muligt at køre scriptet med et klik på en knap
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run update script
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_ORG: "DIT_ORGANISATION_NAVN"
+        run: python update_hub.py
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add profiles/README.md
+          git commit -m "Manuel opdatering: Kursusarkiv opdateret" || exit 0
+          git push
