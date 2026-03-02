@@ -129,7 +129,7 @@ String buildMarkdown(List<Course> courses) {
           sb.writeln("  <details style='margin-left: 20px;'>");
           sb.writeln("    <summary><h4>$camp</h4></summary>\n");
           for (var c in camps[camp]!) {
-            sb.writeln("    * [${c.title}](${c.url})");
+            sb.writeln("  * [${c.title}](${c.url})");
           }
           sb.writeln("  </details>");
         }
