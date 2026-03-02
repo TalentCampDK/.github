@@ -44,24 +44,71 @@ def get_course_data():
 
 
 def build_markdown(courses):
-    """
-    Bygger en Markdown-struktur baseret på kursusdata.
-    """
+    # Vi bygger et træ: Type -> Årstal -> (Evt. Samling) -> Kurser
     tree = {}
     for c in courses:
-        y = c.get("year", "Ukendt år")
-        cn = f"Samling {c.get('camp_number', '?')}"
-        tree.setdefault(y, {}).setdefault(cn, []).append(c)
+        # Standardisering af data
+        raw_type = str(c.get("type", "Andet")).lower()
+        c_type = "Aspirant" if "aspirant" in raw_type else "Folkeskole"
+        grade = str(c.get("grade", ""))
+        year = c.get("year", "Ukendt år")
+        camp_number = str(c.get("camp_number", "?"))
+
+        if c_type not in tree:
+            tree[c_type] = {}
+        if year not in tree[c_type]:
+            tree[c_type][
+                year
+            ] = []  # Vi starter med en liste, som vi kan strukturere senere
+
+        tree[c_type][year].append(c)
 
     md = "# Kursus Arkiv\n\n"
-    for year in sorted(tree.keys(), reverse=True):
-        md += f"<details>\n  <summary><h2>Årstal: {year}</h2></summary>\n\n"
-        for camp in sorted(tree[year].keys()):
-            md += f"  <details style='margin-left: 20px;'>\n    <summary><h3>{camp}</h3></summary>\n\n"
-            for repo in tree[year][camp]:
-                md += f"[{repo['display_name']}]({repo['url']}) — *{repo['grade_level']}*\n"
-            md += "  </details>\n"
-        md += "</details>\n"
+
+    # Sorter typer (Aspirant øverst, så Folkeskole)
+    for c_type in sorted(tree.keys()):
+        md += f"## {c_type}\n\n"
+
+        # Sorter årstal (nyeste først)
+        for year in sorted(tree[c_type].keys(), reverse=True):
+            md += f"<details>\n  <summary><h3>Årstal: {year}</h3></summary>\n\n"
+
+            courses_in_year = tree[c_type][year]
+
+            if c_type == "Aspirant":
+                # LOGIK FOR ASPIRANT: Grupper efter Samling
+                camps = {}
+                for c in courses_in_year:
+                    camp_name = f"Samling {camp_number}"
+                    if camp_name not in camps:
+                        camps[camp_name] = []
+                    camps[camp_name].append(c)
+
+                for camp_name in sorted(camps.keys()):
+                    md += f"  <details style='margin-left: 20px;'>\n    <summary><h4>{camp_name}</h4></summary>\n\n"
+                    for repo in camps[camp_name]:
+                        name = repo.get(
+                            "display_name", repo.get("name", "Navn mangler")
+                        )
+                        md += f"    * [{name}]({repo['url']})\n"
+                    md += "  </details>\n"
+
+            else:
+                folkeskole_display = f"{grade}. klasse, camp {camp_number}"
+                # LOGIK FOR FOLKESKOLE: Ingen samlinger, brug 'long_display_name'
+                # Vi sorterer dem alfabetisk efter det lange navn
+                sorted_folkeskole = sorted(
+                    courses_in_year, key=lambda x: x.get("long_display_name", "")
+                )
+                for repo in sorted_folkeskole:
+                    long_name = repo.get(
+                        "long_display_name", repo.get("display_name", "Navn mangler")
+                    )
+                    md += f"  * [{long_name}]({repo['url']})\n"
+
+            md += "</details>\n\n"
+
+        md += "---\n\n"
     return md
 
 
