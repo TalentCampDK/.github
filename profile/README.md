@@ -19,7 +19,7 @@
 <details>
   <summary><h3>Årstal: 2024/2025</h3></summary>
 
-  * [Test Camp for folkeskoler](https://github.com/TalentCampDK/25_26-test-bash-folkeskole-camp1) — *9. klasse, camp 1*
+  * [9. klasse, camp 1](https://github.com/TalentCampDK/25_26-test-bash-folkeskole-camp1) — *(Kombinatorik (test))*
 </details>
 
 ---
