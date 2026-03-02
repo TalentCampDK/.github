@@ -6,6 +6,11 @@
   <summary><h3>Årstal: 2025/2026</h3></summary>
 
   <details style='margin-left: 20px;'>
+    <summary><h4>Samling 1</h4></summary>
+
+  * [NAVN PÅ KURSET](https://github.com/TalentCampDK/course-template)
+  </details>
+  <details style='margin-left: 20px;'>
     <summary><h4>Samling 3</h4></summary>
 
   * [Sandsynlighed](https://github.com/TalentCampDK/Sandsynlighed_Aspirant_Samling-3_25-26)
