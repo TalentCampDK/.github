@@ -43,7 +43,17 @@ def get_course_data():
     return all_courses
 
 
+# TODO: sørg for at det ikke lukket helt hvis en meta.json er forkert formateret,
+# TODO: sørg for at der til hvert kursus er den rigtige information, lige nu er informationen i loopet, hvilket er forker
 def build_markdown(courses):
+    """
+    Bygger en Markdown-struktur baseret på kursusdataene.
+     - Kurserne grupperes først efter type (Aspirant eller Folkeskole).
+     - Derefter grupperes de efter årstal.
+     - For Aspirant-kurser, grupperes de yderligere efter samling.
+     - For Folkeskole-kurser, vises de direkte under årstallet.
+     - Returnerer den færdige Markdown-struktur som en streng.
+    """
     # Vi bygger et træ: Type -> Årstal -> (Evt. Samling) -> Kurser
     tree = {}
     for c in courses:
@@ -94,7 +104,7 @@ def build_markdown(courses):
                     md += "  </details>\n"
 
             else:
-                folkeskole_display = f"{grade}. klasse, camp {camp_number}"
+                folkeskole_display = f"{grade}. klasse, camp {camp_number} *()*"
                 # LOGIK FOR FOLKESKOLE: Ingen samlinger, brug 'long_display_name'
                 # Vi sorterer dem alfabetisk efter det lange navn
                 sorted_folkeskole = sorted(
