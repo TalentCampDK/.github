@@ -13,7 +13,7 @@ final Map<String, String> headers = {
 const String readmePath = 'profile/README.md';
 
 class Course {
-  final String title;
+  final String courseName;
   final String longTitle;
   final String type;
   final String year;
@@ -22,7 +22,7 @@ class Course {
   final String url;
 
   Course({
-    required this.title,
+    required this.courseName,
     required this.longTitle,
     required this.type,
     required this.year,
@@ -40,7 +40,7 @@ class Course {
 
   factory Course.fromJson(Map<String, dynamic> json, String repoUrl) {
     return Course(
-      title: json['display_name'] ?? 'Navn mangler',
+      courseName: json['course_name'] ?? 'Navn mangler',
       longTitle:
           json['long_display_name'] ?? json['display_name'] ?? 'Navn mangler',
       type: json['type'] ?? 'Andet',
@@ -129,7 +129,7 @@ String buildMarkdown(List<Course> courses) {
           sb.writeln("  <details style='margin-left: 20px;'>");
           sb.writeln("    <summary><h4>$camp</h4></summary>\n");
           for (var c in camps[camp]!) {
-            sb.writeln("  * [${c.title}](${c.url})");
+            sb.writeln("  * [${c.courseName}](${c.url})");
           }
           sb.writeln("  </details>");
         }
@@ -138,7 +138,7 @@ String buildMarkdown(List<Course> courses) {
         coursesInYear.sort((a, b) => a.longTitle.compareTo(b.longTitle));
         for (Course c in coursesInYear) {
           sb.writeln(
-            "  * [${c.longTitle}](${c.url}) — *${c.folkeskoleDisplay}*",
+            "  * [${c.folkeskoleDisplay}](${c.url}) — *(${c.courseName})*",
           );
         }
       }
