@@ -8,7 +8,7 @@
   <details style='margin-left: 20px;'>
     <summary><h4>Samling 3</h4></summary>
 
-    * [Sandsynlighed](https://github.com/TalentCampDK/Sandsynlighed_Aspirant_Samling-3_25-26)
+  * [Sandsynlighed](https://github.com/TalentCampDK/Sandsynlighed_Aspirant_Samling-3_25-26)
   </details>
 </details>
 
