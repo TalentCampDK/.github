@@ -90,7 +90,7 @@ def build_markdown(courses):
                         name = repo.get(
                             "display_name", repo.get("name", "Navn mangler")
                         )
-                        md += f"    * [{name}]({repo['url']})\n"
+                        md += f"  * [{name}]({repo['url']})\n"
                     md += "  </details>\n"
 
             else:
@@ -101,10 +101,7 @@ def build_markdown(courses):
                     courses_in_year, key=lambda x: x.get("long_display_name", "")
                 )
                 for repo in sorted_folkeskole:
-                    long_name = repo.get(
-                        "long_display_name", repo.get("display_name", "Navn mangler")
-                    )
-                    md += f"  * [{long_name}]({repo['url']})\n"
+                    md += f"  * [{folkeskole_display}]({repo['url']})\n"
 
             md += "</details>\n\n"
 
