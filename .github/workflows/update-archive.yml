@@ -23,7 +23,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GITHUB_ORG: "TalentCampDK"
-        run: dart scripts/update_hub.dart
+        run: dart scripts/update_archive.dart
 
       - name: Commit and push changes
         run: |
