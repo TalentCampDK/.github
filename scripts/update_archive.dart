@@ -113,7 +113,7 @@ String buildMarkdown(List<Course> courses) {
     for (var year in sortedYears) {
       sb.writeln("<details>\n  <summary><h3>Årstal: $year</h3></summary>\n");
 
-      var coursesInYear = tree[type]![year]!;
+      List<Course>? coursesInYear = tree[type]![year]!;
 
       if (type == "Aspirant") {
         // Grupper efter Samling
@@ -136,7 +136,7 @@ String buildMarkdown(List<Course> courses) {
       } else {
         // Folkeskole: Sorter efter longTitle
         coursesInYear.sort((a, b) => a.longTitle.compareTo(b.longTitle));
-        for (var c in coursesInYear) {
+        for (Course c in coursesInYear) {
           sb.writeln(
             "  * [${c.longTitle}](${c.url}) — *${c.folkeskoleDisplay}*",
           );
