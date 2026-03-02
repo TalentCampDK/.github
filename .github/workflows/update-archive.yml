@@ -1,7 +1,6 @@
-name: Update Course Archive
+name: Update Course Archive (Dart)
 
 on:
-  # Gør det muligt at køre scriptet med et klik på en knap
   workflow_dispatch:
 
 jobs:
@@ -14,24 +13,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
+      - name: Set up Dart
+        uses: dart-lang/setup-dart@v1
 
-      - name: Install dependencies
-        run: pip install requests
+      - name: Get dependencies
+        run: dart pub add http  # Hurtig måde at få http pakken uden en pubspec.yaml
 
-      - name: Run update script
+      - name: Run Dart script
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GITHUB_ORG: "TalentCampDK"
-        run: python update_archive.py
+        run: dart scripts/update_hub.dart
 
       - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add profile/README.md
-          git commit -m "Manuel opdatering: Kursusarkiv opdateret" || exit 0
+          git commit -m "Auto-update: README opdateret via Dart script" || exit 0
           git push
