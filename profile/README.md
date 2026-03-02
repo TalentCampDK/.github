@@ -1,21 +1,20 @@
-# 📚 TalentCamp kurser
-
-Her har du en oversigt over alle TalentCampDKs kurser
+# Kursus Arkiv
 
 <details>
-  <summary>Klik her for at se mere!</summary>
+  <summary><h2>Årstal: 2025/2026</h2></summary>
 
-  Dette er et eksempel på en folder
+  <details style='margin-left: 20px;'>
+    <summary><h3>Samling 3</h3></summary>
+
+[Sandsynlighed](https://github.com/TalentCampDK/Sandsynlighed_Aspirant_Samling-3_25-26) — *aspirant*
+  </details>
 </details>
+<details>
+  <summary><h2>Årstal: 2024/2025</h2></summary>
 
-## 📅 Gennemse efter år
+  <details style='margin-left: 20px;'>
+    <summary><h3>Samling 1</h3></summary>
 
-- <a href="https://github.com/search?q=org:TalentCampDK+topic:year-2025-2026&type=repositories" target="_blank">2025/2026</a>
-
-## 📚 Gennemse efter kursus
-
-- <a href="https://github.com/search?q=org:TalentCampDK+topic:course-sandsynlighed&type=repositories" target="_blank">Sandsynlighed</a>
-
-## 🔍 Avanceret søgning
-
-- <a href="https://github.com/search?q=org:TalentCampDK&type=repositories" target="_blank">Filtrér selv repositories</a>
+[Test Camp](https://github.com/TalentCampDK/25_26-test-bash-folkeskole-camp1) — *folkeskole*
+  </details>
+</details>
