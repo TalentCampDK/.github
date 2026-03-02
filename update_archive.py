@@ -8,7 +8,7 @@ GITHUB_ORG = os.getenv("GITHUB_ORG")
 TOKEN = os.getenv("GH_TOKEN")
 HEADERS = {"Authorization": f"token {TOKEN}"}
 
-README_PATH = "profiles/README.md"
+README_PATH = "profile/README.md"
 
 
 def get_course_data():
@@ -59,7 +59,7 @@ def build_markdown(courses):
         for camp in sorted(tree[year].keys()):
             md += f"  <details style='margin-left: 20px;'>\n    <summary><h3>{camp}</h3></summary>\n\n"
             for repo in tree[year][camp]:
-                md += f"    * [{repo['display_name']}]({repo['url']}) — *{repo['grade_level']}*\n"
+                md += f"[{repo['display_name']}]({repo['url']}) — *{repo['grade_level']}*\n"
             md += "  </details>\n"
         md += "</details>\n"
     return md
