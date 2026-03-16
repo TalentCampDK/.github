@@ -25,13 +25,13 @@
 <details>
   <summary><h3>2025/2026</h3></summary>
 
-  * [. klasse, camp ](https://github.com/TalentCampDK/algebra-og-geometri-folkeskole-2025-2026) — *(Algebra og Geometri)*
+  * [. klasse, camp ](https://github.com/TalentCampDK/test-kursus-folkeskole-2025-2026) — *(Test-kursus)*
 </details>
 
 ---
 
 ### 🔄 Arkiv Information
-Sidst opdateret: **15/3-2026 kl. 18:16**
+Sidst opdateret: **16/3-2026 kl. 01:22**
 
 
 [![Opdater Arkiv Manuelt](https://img.shields.io/badge/Klik_her_for_at_synkronisere_arkivet-blue?style=flat-square&logo=github)](https://github.com/TalentCampDK/github-actions-central/actions/workflows/update-leaning-material-archive.yml)
