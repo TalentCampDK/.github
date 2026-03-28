@@ -31,7 +31,7 @@
 ---
 
 ### 🔄 Arkiv Information
-Sidst opdateret: **27/3-2026 kl. 01:21**
+Sidst opdateret: **28/3-2026 kl. 01:15**
 
 
 [![Opdater Arkiv Manuelt](https://img.shields.io/badge/Klik_her_for_at_synkronisere_arkivet-blue?style=flat-square&logo=github)](https://github.com/TalentCampDK/github-actions-central/actions/workflows/update-leaning-material-archive.yml)
